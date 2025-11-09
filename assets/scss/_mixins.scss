@@ -1,0 +1,5 @@
+@mixin mobile-first {
+    @media (min-width: $breakpoint-md) {
+        @content;
+    }
+}

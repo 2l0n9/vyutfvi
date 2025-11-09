@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+    font-family: $font-stack;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+.calculator-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+
+    h1 {
+        color: $primary-color;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left; 
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: $secondary-color;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+        
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 0.2rem rgba($primary-color, .25);
+            outline: none;
+        }
+    }
+
+    .btn-calculate {
+        background-color: $success-color;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($success-color, 10%);
+        }
+    }
+
+    #result {
+        margin-top: 25px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $primary-color;
+        &.fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+        &.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+    }
+}
+
+@include mobile-first {
+    .calculator-card {
+        padding: 40px;
+        h1 {
+            font-size: 3rem;
+        }
+    }
+}
